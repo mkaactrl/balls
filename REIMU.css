@@ -1,43 +1,77 @@
 /**
- * @name Reimu
- * @description Touhou theme with YOUR font from mkaactrl/balls
- * @version 1.6
+ * @name Reimu-Final
+ * @description No red text + bulletproof font loading
+ * @author mkaactrl
+ * @version 2.0
  */
 
-/* === FONT FROM YOUR REPO === */
+/* ===== FONT FIX (Base64 fallback included) ===== */
 @font-face {
-  font-family: 'TouhouFont';
-  src: url('https://raw.githubusercontent.com/mkaactrl/balls/main/FlamingoWkawc-gYRRrtf') format('truetype');
+  font-family: 'WeaveFont';
+  src: 
+    /* First try GitHub */
+    url('https://raw.githubusercontent.com/mkaactrl/balls/main/Flamingo/Weave-gYRP.ttf') format('truetype'),
+    /* Fallback to local copy */
+    url('fonts/Weave-gYRP.ttf') format('truetype');
   font-display: swap;
 }
 
-/* === NUKEPROOF STYLING === */
+/* ===== COLOR FIX ===== */
 :root {
-  --reimu-red: #ff2d2d;
-  --reimu-bg: url('https://www.fondoshd.mx/wallpapers/hakurei-reimu-2525.jpg');
-  --font-primary: 'TouhouFont', fantasy !important;
+  /* Original colors without forced red */
+  --reimu-red: #e83b3b;
+  --reimu-white: #fff9f9;
+  --reimu-dark: #1a0d1a;
+  --reimu-gold: #ffcc00;
+  
+  /* Font system */
+  --font-primary: 'WeaveFont', 'Arial', sans-serif;
 }
 
-/* === FORCE FONT EVERYWHERE === */
+/* ===== REMOVE RED TEXT GLOBALLY ===== */
 * {
-  font-family: var(--font-primary);
-  text-shadow: 0 0 5px var(--reimu-red);
+  color: inherit !important;
+  text-shadow: none !important;
 }
 
-/* === BACKGROUND WITH OVERLAY === */
+/* ===== BACKGROUND ===== */
 .appMount-3lHmkl,
-.layer-3QrUeG,
-.standardSidebarView-E9Pc3j {
+.layer-3QrUeG, 
+.root-1gCeng {
   background: 
-    linear-gradient(rgba(0, 0, 0, 0.9), rgba(70, 0, 50, 0.9)),
-    var(--reimu-bg) center/cover fixed !important;
+    linear-gradient(rgba(26, 13, 26, 0.9), rgba(40, 10, 40, 0.9)),
+    url('https://www.fondoshd.mx/wallpapers/hakurei-reimu-2525.jpg') center/cover fixed !important;
 }
 
-/* === SCROLLBAR === */
-::-webkit-scrollbar-thumb {
+/* ===== FORCE FONT EVERYWHERE ===== */
+body,
+.message-content, 
+.username,
+.channel-name,
+.sidebarRegionScroller-FXiQOh,
+.input-2g-os5 {
+  font-family: var(--font-primary) !important;
+  font-weight: normal !important;
+}
+
+/* ===== UI TWEAKS ===== */
+/* Server list - glass effect */
+.guilds-wrapper {
+  background: rgba(20, 5, 20, 0.7) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Message bubbles */
+.message-2CShn3 {
+  background: rgba(80, 30, 80, 0.4) !important;
+  border-radius: 12px;
+}
+
+/* Scrollbar */
+.scroller-2FKFPG::-webkit-scrollbar-thumb {
   background: var(--reimu-red) !important;
-  border-radius: 10px !important;
 }
 
-/* === EMERGENCY FALLBACK === */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* ===== NUCLEAR FALLBACK ===== */
+/* If all else fails, use system font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
