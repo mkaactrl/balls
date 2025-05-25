@@ -1,0 +1,97 @@
+/**
+ * @name Reimu
+ * @description Touhou-inspired theme with full background coverage
+ * @author YourName
+ * @version 1.2
+ */
+
+/* === Imports === */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+/* === Colors === */
+:root {
+  --reimu-red: #e83b3b;
+  --reimu-white: #fff9f9;
+  --reimu-dark: #1a0d1a;
+  --reimu-gold: #ffcc00;
+}
+
+/* === Global Background === */
+.appMount-3lHmkl,
+.layer-3QrUeG, /* All popup layers */
+.root-1gCeng, /* Modals */
+.standardSidebarView-3F1I7i /* Server settings */ {
+  background: 
+    linear-gradient(rgba(26, 13, 26, 0.85), rgba(40, 10, 40, 0.9)),
+    url('https://www.fondoshd.mx/wallpapers/hakurei-reimu-2525.jpg') center/cover no-repeat fixed !important;
+}
+
+/* === Dark Theme === */
+.theme-dark {
+  /* Text */
+  --header-primary: var(--reimu-white);
+  --header-secondary: #d8b9ff;
+  --text-normal: var(--reimu-white);
+  --text-muted: #c9a8e0;
+
+  /* Backgrounds */
+  --background-primary: rgba(30, 15, 30, 0.8);
+  --background-secondary: rgba(50, 20, 50, 0.7);
+  --background-tertiary: rgba(70, 25, 70, 0.6);
+
+  /* Accents */
+  --brand-experiment: var(--reimu-red);
+  --interactive-active: var(--reimu-gold);
+  --interactive-hover: #ff6b6b;
+
+  /* Font */
+  --font-primary: 'Noto Sans JP', sans-serif;
+}
+
+/* === UI Adjustments === */
+/* Make all content areas transparent */
+.sidebarRegion-VFTUkN,
+.contentRegion-3nDuYy,
+.chat-2ZfjoI,
+.content-1jQy2l {
+  background: transparent !important;
+}
+
+/* Server list - glass effect */
+.guilds-wrapper {
+  background: rgba(20, 5, 20, 0.6) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Message bubbles */
+.message-2CShn3 {
+  background: rgba(80, 30, 80, 0.5) !important;
+  border-radius: 12px;
+}
+
+/* Input fields */
+.input-2g-os5,
+.textArea-12jD-V {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Scrollbar */
+.scroller-2FKFPG::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--reimu-red), var(--reimu-gold));
+}
+
+/* Buttons */
+.lookFilled-1Gx00P {
+  background-color: var(--reimu-red) !important;
+  transition: all 0.3s ease;
+}
+.lookFilled-1Gx00P:hover {
+  background-color: #ff5252 !important;
+  transform: scale(1.02);
+}
+
+/* Settings sidebar fix */
+.sidebarRegionScroller-FXiQOh {
+  background: rgba(30, 15, 30, 0.7) !important;
+  backdrop-filter: blur(5px);
+}
