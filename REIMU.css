@@ -1,70 +1,43 @@
 /**
  * @name Reimu
- * @description Balls-to-the-wall Touhou theme
- * @author mkaactrl
- * @version 1.4
+ * @description Touhou theme with YOUR font from mkaactrl/balls
+ * @version 1.6
  */
 
-/* === FONT: Weave-gYRP from your GitHub === */
+/* === FONT FROM YOUR REPO === */
 @font-face {
-  font-family: 'WeaveFont';
-  src: url('https://raw.githubusercontent.com/mkaactrl/balls/main/Flamingo/Weave-gYRP.ttf') format('truetype');
+  font-family: 'TouhouFont';
+  src: url('https://raw.githubusercontent.com/mkaactrl/balls/main/FlamingoWkawc-gYRRrtf') format('truetype');
   font-display: swap;
 }
 
-/* === BASE STYLES === */
+/* === NUKEPROOF STYLING === */
 :root {
-  --reimu-red: #e83b3b;
-  --reimu-white: #fff9f9;
-  --reimu-dark: #1a0d1a;
-  --reimu-gold: #ffcc00;
-  --font-primary: 'WeaveFont', 'Noto Sans JP', sans-serif; /* Your font first! */
-}
-
-/* === BACKGROUND (Your Reimu wallpaper) === */
-.appMount-3lHmkl,
-.layer-3QrUeG,
-.root-1gCeng,
-.standardSidebarView-3F1I7i {
-  background: 
-    linear-gradient(rgba(26, 13, 26, 0.85), rgba(40, 10, 40, 0.9)),
-    url('https://www.fondoshd.mx/wallpapers/hakurei-reimu-2525.jpg') center/cover no-repeat fixed !important;
-}
-
-/* === DARK THEME WITH YOUR FONT === */
-.theme-dark {
-  /* Text */
-  --header-primary: var(--reimu-white);
-  --header-secondary: #d8b9ff;
-  --text-normal: var(--reimu-white);
-  --text-muted: #c9a8e0;
-
-  /* Backgrounds */
-  --background-primary: rgba(30, 15, 30, 0.8);
-  --background-secondary: rgba(50, 20, 50, 0.7);
-  --background-tertiary: rgba(70, 25, 70, 0.6);
-
-  /* Accents */
-  --brand-experiment: var(--reimu-red);
-  --interactive-active: var(--reimu-gold);
-  --interactive-hover: #ff6b6b;
+  --reimu-red: #ff2d2d;
+  --reimu-bg: url('https://www.fondoshd.mx/wallpapers/hakurei-reimu-2525.jpg');
+  --font-primary: 'TouhouFont', fantasy !important;
 }
 
 /* === FORCE FONT EVERYWHERE === */
-body,
-.message-content,
-.username,
-.channel-name,
-.sidebarRegionScroller-FXiQOh {
-  font-family: var(--font-primary) !important;
+* {
+  font-family: var(--font-primary);
+  text-shadow: 0 0 5px var(--reimu-red);
 }
 
-/* === EMOJI FIX (so they don't break) === */
-.emoji {
-  font-family: "Twemoji", "Segoe UI Emoji" !important;
+/* === BACKGROUND WITH OVERLAY === */
+.appMount-3lHmkl,
+.layer-3QrUeG,
+.standardSidebarView-E9Pc3j {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(70, 0, 50, 0.9)),
+    var(--reimu-bg) center/cover fixed !important;
 }
 
-/* === YOUR SCROLLBAR STYLE === */
-.scroller-2FKFPG::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--reimu-red), var(--reimu-gold));
+/* === SCROLLBAR === */
+::-webkit-scrollbar-thumb {
+  background: var(--reimu-red) !important;
+  border-radius: 10px !important;
 }
+
+/* === EMERGENCY FALLBACK === */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
